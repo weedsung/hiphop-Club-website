@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - GONGMYEONG</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="GONGMYEONG">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                    <li><a href="shop.html" class="nav-link">SHOP</a></li>
+                    <li><a href="works.html" class="nav-link">WORKS</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="shop-page">
+            <div class="section-inner">
+                <h1 class="page-title">SHOP</h1>
+                <div class="shop-categories">
+                    <button class="category-btn active" data-category="all">ALL</button>
+                    <button class="category-btn" data-category="clothing">CLOTHING</button>
+                    <button class="category-btn" data-category="accessories">ACCESSORIES</button>
+                </div>
+                <div class="shop-grid">
+                    <div class="shop-item" data-category="clothing">
+                        <div class="shop-image">
+                            <img src="assets/images/shop-1.jpg" alt="공명 후드티">
+                            <div class="shop-overlay">
+                                <div class="shop-actions">
+                                    <button class="shop-btn">자세히 보기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>공명 시그니처 후드티</h3>
+                            <p class="price">89,000원</p>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="clothing">
+                        <div class="shop-image">
+                            <img src="assets/images/shop-2.jpg" alt="공명 티셔츠">
+                            <div class="shop-overlay">
+                                <div class="shop-actions">
+                                    <button class="shop-btn">자세히 보기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>공명 로고 티셔츠</h3>
+                            <p class="price">39,000원</p>
+                        </div>
+                    </div>
+                    <div class="shop-item" data-category="accessories">
+                        <div class="shop-image">
+                            <img src="assets/images/shop-3.jpg" alt="공명 모자">
+                            <div class="shop-overlay">
+                                <div class="shop-actions">
+                                    <button class="shop-btn">자세히 보기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shop-info">
+                            <h3>공명 스냅백</h3>
+                            <p class="price">35,000원</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>&copy; 2024 HIPHOP CREW GONGMYEONG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/cursor.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // 카테고리 필터링
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const shopItems = document.querySelectorAll('.shop-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 버튼 활성화 상태 변경
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // 아이템 필터링
+                const category = btn.dataset.category;
+                shopItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
